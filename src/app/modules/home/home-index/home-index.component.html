@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="title">
+        Danh sách Phim
+    </h1>
+    <div fxLayout="row wrap" fxLayout.sm="column" fxLayoutGap="20px grid">
+        <div *ngFor="let item of movieList" fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="50%">
+            <app-movie-item [movie]="item"></app-movie-item>
+        </div>
+        
+    </div>
+    <button (click)="handleDelete()">Delete Movie</button>
+</div>

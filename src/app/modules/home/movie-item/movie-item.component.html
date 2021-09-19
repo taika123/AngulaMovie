@@ -1,0 +1,8 @@
+<mat-card >
+    <img mat-card-image [src]="movie.hinhAnh" />
+    <mat-card-title>{{movie.tenPhim}}</mat-card-title>
+    <mat-card-content>{{movie.moTa}}</mat-card-content>
+    <mat-card-actions>
+        <button [routerLink]="'/detail/' + movie.maPhim" mat-raised-button color="primary">Chi Tiết</button>
+    </mat-card-actions>
+</mat-card>

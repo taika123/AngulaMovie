@@ -1,0 +1,62 @@
+<div class="container">
+  <h1 class="title mat-display-2">Đăng ký</h1>
+
+  <!-- html5 attribute: required, minLength, maxLength,email, pattern  -->
+  <form #signupForm="ngForm" (submit)="handleSubmit()">
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Tài Khoản</mat-label>
+      <input #username="ngModel" required matInput name="taiKhoan" ngModel />
+      <mat-error *ngIf="username.errors?.required"
+        >Vui Lòng Nhập Tài Khoản</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Mật khẩu</mat-label>
+      <input
+        #password="ngModel"
+        required
+        matInput
+        minlength="8"
+        maxlength="16"
+        type="password"
+        name="matKhau"
+        ngModel
+      />
+      <mat-error *ngIf="password.errors?.required"
+        >Vui Lòng Nhập Mật Khẩu</mat-error
+      >
+      <mat-error *ngIf="password.errors?.minlength || password.errors?.maxlength"
+        >Độ dài mật khẩu phải từ 8 - 16 kí tự</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input #email="ngModel" required matInput name="email" ngModel />
+      <mat-error *ngIf="email.errors?.required"
+        >Vui Lòng Nhập Đúng Email</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Họ tên</mat-label>
+      <input required #ten="ngModel" matInput name="hoTen" ngModel />
+      <mat-error *ngIf="ten.errors?.required"
+        >Vui Lòng Nhập Đúng Tên</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-group" appearance="outline">
+      <mat-label>Số ĐT</mat-label>
+      <input #call="ngModel"  pattern="^[0-9]+$" matInput name="soDt" ngModel />
+      <mat-error *ngIf="call.errors?.pattern"
+        >Vui Lòng Nhập SDT</mat-error
+      >
+    </mat-form-field>
+
+    <div class="btn-group">
+      <button mat-raised-button color="primary">Đăng ký</button>
+    </div>
+  </form>
+</div>
